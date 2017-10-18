@@ -1,17 +1,18 @@
 """Doc string."""
 
-from text_file_stripper import clean_text_in
+from clean_up import clean_text_in
 from pprint import pprint
 from sys import argv
 import histogram
 import random
 
 
-def random_words(word_count, weights):
+def random_words(word_count, histogram):
     """Returns dict containing random words & number of times it was chosen."""
     # Dict will hold random word and number of times that word was chosen.
     chosen_words = dict()
 
+    weights = get_word_weights(histogram)
     # Adds number(WORD_COUNT) of random words to the CHOSEN_WORDS dict.
     for i in range(0, word_count):
         random_float = random.random()
@@ -26,7 +27,7 @@ def random_words(word_count, weights):
                 else:
                     chosen_words[word] += 1
                 break
-    pprint(chosen_words)
+    # pprint(chosen_words)
     return chosen_words
 
 
@@ -53,5 +54,5 @@ if __name__ == '__main__':
     # histogram = histogram.make_histogram_from(sys.argv[1])
     # weights = word_weights(histogram)
     histo = histogram.make_histogram_from(text)
-    weights = get_word_weights(histo)
-    random_words(30, weights)
+    # weights = get_word_weights(histo)
+    random_words(30, histo)

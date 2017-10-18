@@ -1,14 +1,5 @@
-from text_file_stripper import clean_text_in
+from clean_up import clean_text_in
 from sys import argv
-
-
-# def convert_text_to_string(text_file_path):
-#     """Returns a string made up of the text in the text_file."""
-#     file = open(text_file_path, "r")
-#     file_text = file.readlines()
-#     file.close()
-#     string = "".join(file_text)
-#     return string
 
 
 def make_histogram_from(text):

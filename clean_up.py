@@ -1,3 +1,4 @@
+"""Module will remove unwanted characters in a text file"""
 from sys import argv
 
 

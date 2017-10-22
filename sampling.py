@@ -55,4 +55,4 @@ if __name__ == '__main__':
     # weights = word_weights(histogram)
     histo = histogram.make_histogram_from(text)
     # weights = get_word_weights(histo)
-    random_words(30, histo)
+    print(random_words(20000, histo))

@@ -25,7 +25,6 @@ class Dictogram(dict):
             else:
                 self[item] += 1
                 self.tokens += 1
-            pass
 
     def count(self, item):
         """Return the count of the given item in this histogram, or 0."""
@@ -34,27 +33,28 @@ class Dictogram(dict):
             return self[item]
         else:
             return 0
-        pass
 
     def return_random_word(self):
-        """Return random word."""
-        random_word = random.sample(self, 1)
-        return random_word[0]
+        # Another way:  Should test: random.choice(histogram.keys())
+        random_key = random.sample(self, 1)
+        return random_key[0]
 
-    def get_weighted_random_word(self):
-        """Returns random word based off weight."""
-        # Elmer
+    def return_weighted_random_word(self):
         # Step 1: Generate random number between 0 and total count - 1
-        index = 0
         random_int = random.randint(0, self.tokens - 1)
-        list_of_keys = self.keys()
+        index = 0
+        list_of_keys = list(self.keys())
+        # self.types
+
         # print 'the random index is:', random_int
-        for i in range(0, self.types):
-            index += self[list_of_keys[i]]
+        # for i in range(0, list_of_keys):
+        for key in list_of_keys:
+            index += self[key]
             # print index
             if(index > random_int):
                 # print(list_of_keys[i])
-                return list_of_keys[i]
+                return key
+
 
     def add(self, word):
         if word in self:
@@ -64,3 +64,6 @@ class Dictogram(dict):
             self.tokens += 1
             self.types += 1
             self[word] = 1
+
+
+

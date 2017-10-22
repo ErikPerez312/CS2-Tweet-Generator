@@ -12,7 +12,7 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/sentence')
+@app.route('/')
 def random_sentence():
     # text = clean_text_in("fish.txt").split()
     # print(type(text.split()), "======")
